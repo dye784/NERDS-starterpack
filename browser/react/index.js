@@ -8,7 +8,7 @@ import Routes from './routes';
 
 ReactDOM.render(
   <Provider store={ store }>
-    { Routes }
+    <Routes />
   </Provider>,
   document.getElementById('app')
 );

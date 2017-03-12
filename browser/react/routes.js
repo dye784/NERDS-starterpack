@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from'react-redux'
+import { connect } from 'react-redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
-import App from './App';
+import { App } from './App';
 
-const Routes = ({ fetchInitialData }) => (
+const Routes = () => (
   <Router history={ browserHistory }>
     <Route path="/">
       <IndexRoute component={App} />
