@@ -1,4 +1,4 @@
-NERDS Starter Pack
+NERDS(NERP) Starter Pack
 
 Jumbo Project setup bundle for
 
