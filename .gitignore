@@ -22,3 +22,5 @@ Thumbs.db
 .idea
 .vscode
 
+# Yarn
+yarn.lock
