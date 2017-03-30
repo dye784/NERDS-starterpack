@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon --watch server -e js,html server/app/main.js",
-    "build": "webpack --watch"
+    "build": "webpack --watch",
+    "db-init": "pg-init NAME_OF_DB"
   },
   "author": "Damon",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "babel-preset-react": "^6.16.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "fs-misc": "^2.0.0",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
     "pg": "^6.1.0",

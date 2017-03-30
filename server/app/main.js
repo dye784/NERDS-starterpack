@@ -1,13 +1,13 @@
 const express = require('express');
-const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const routes = require('./routes');
+const db = require('../model');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 1337;
-const routes = require('./routes');
-const db = require('../model');
+const app = express();
 
 app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));

@@ -1,10 +1,8 @@
-'use strict';
-
 // Database
-var db = require('./_db');
+const db = require('./_db');
 
 // Models
-var Model = require('./Model');
+const Model = require('./Model');
 
 // Associations
 
