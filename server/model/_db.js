@@ -1,8 +1,7 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize('postgres://localhost:5432/NAME_OF_DB', {
+const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/chatdb', {
   define: {
-    timestamps: false,
     underscored: true,
   },
   logging: false,

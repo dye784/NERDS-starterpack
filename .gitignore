@@ -22,5 +22,6 @@ Thumbs.db
 .idea
 .vscode
 
-# Yarn
-yarn.lock
+# Bundle files
+public/bundle.js
+public/bundle.js.map

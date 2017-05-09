@@ -2,7 +2,7 @@
 const db = require('./_db');
 
 // Models
-const Model = require('./Model');
+const User = require('./user');
 
 // Associations
 
