@@ -34,13 +34,8 @@ router.post('/login', (req, res, next) => {
     },
     attributes: { include: ['password_digest'] },
   })
-  .spread((foundUser, created) => {
-    if (created) {
-      req.logIn(foundUser, (err) => {
-        if (err) { return next(err); }
-        res.send(foundUser.toJson());
-      });
-    } else {
+  .then((foundUser) => {
+      if (!foundUser) { return res.sendStatus(401); }
       return foundUser.authenticate(req.body.password)
         .then((isAuthorized) => {
           if (!isAuthorized) {
@@ -52,7 +47,6 @@ router.post('/login', (req, res, next) => {
             });
           }
         });
-    }
   })
   .catch(next);
 });
