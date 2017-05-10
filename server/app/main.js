@@ -13,7 +13,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 1337;
 
 // Logging Middleware
-app.use(morgan('dev'));
+if (!isProduction) { app.use(morgan('dev')); }
 
 // Server up static files from '../../public'
 app.use(express.static(path.join(__dirname, '..', '..', 'public')));
