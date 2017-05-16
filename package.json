@@ -11,7 +11,7 @@
     "seed": "node seed.js"
   },
   "author": "Damon",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.15.3",
     "babel": "^6.5.2",
