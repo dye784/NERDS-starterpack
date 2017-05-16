@@ -1,7 +1,7 @@
 /* global describe it beforeEach afterEach */
 
-const { expect } = require('chai');
-const { AUTHENTICATED, authenticate } = require('../LoginActionCreator');
+import { expect } from 'chai';
+import { AUTHENTICATED, authenticate } from '../LoginActionCreator';
 
 describe('Login Action Creators', () => {
   describe('Synchronous Action Creators', () => {

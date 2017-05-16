@@ -1,9 +1,9 @@
 /* global describe it beforeEach */
 
-const { expect } = require('chai');
-const { createStore } = require('redux');
-const { authenticate } = require('../LoginActionCreator');
-const LoginReducer = require('../LoginReducer').default;
+import { expect } from 'chai';
+import { createStore } from 'redux';
+import { authenticate } from '../LoginActionCreator';
+import LoginReducer from '../LoginReducer';
 
 describe('Login Reducer', () => {
   const userData = {
