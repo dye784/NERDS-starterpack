@@ -17,7 +17,7 @@ Testing is done with Mocha, Chai, SuperTest, and Enyzme!
 ### Installation
 **Fork** and **clone** this repository.
 
-Then insall the dependencies
+Then install the dependencies
 
 ```
 npm install
