@@ -23,7 +23,6 @@ router.get('/me', (req, res, next) => {
 
 // POST request to login user
 // If user exists, check password, if correct password login
-// If user doesn't exist, create user, login
 router.post('/login', (req, res, next) => {
   User.findOne({
     where: {
