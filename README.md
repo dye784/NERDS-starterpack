@@ -1,4 +1,5 @@
 ## NERDS(NERP) Starter Pack
+[![Build Status](https://travis-ci.org/dye784/NERDS-starterpack.svg?branch=master)](https://travis-ci.org/dye784/NERDS-starterpack)
 
 ### Introduction
 Hello, my name is Damon Ye and this is a boiler plate for the NERDS stack!
