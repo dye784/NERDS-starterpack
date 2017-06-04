@@ -15,8 +15,26 @@ Files are structured by specific domains
 
 Testing is done with Mocha, Chai, SuperTest, and Enyzme!
 
-### Installation
-**Fork** and **clone** this repository.
+### Installation and Setup
+If you want to modify the NERDS Starter Pack to your liking **Fork** and then modify it to your liking!
+
+If you want to use this to jumpstart your apps **clone** this repository and off you go!
+
+To just clone it:
+
+Create your own Github repo and clone it or make an empty directory on your machine and `git init`.
+
+Then add the remote branch
+
+```
+git remote add nerds https://github.com/dye784/NERDS-starterpack.git
+```
+
+Then pull from the remote repo into the master branch
+
+```
+git pull nerds master
+```
 
 Then install the dependencies
 
