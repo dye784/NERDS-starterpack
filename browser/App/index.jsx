@@ -1,6 +1,6 @@
 import React from 'react';
-import Login from '../Login/index.jsx';
-import Logout from '../Logout/index.jsx';
+import Login from '../Login';
+import Logout from '../Logout';
 
 export const App = () => {
   return (

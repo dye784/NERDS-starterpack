@@ -8,7 +8,7 @@ import chaiEnzyme from 'chai-enzyme';
 import { spy } from 'sinon';
 import sinonChai from 'sinon-chai';
 chai.use(sinonChai);
-import LoginContainer, { Login } from '../index.jsx';
+import LoginContainer, { Login } from '../';
 chai.use(chaiEnzyme());
 
 describe('<Login />', () => {
