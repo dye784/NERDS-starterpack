@@ -11,9 +11,11 @@ Express
 React, Redux
 Databases with SQL (PostgreSQL, Sequelize)
 
-Files are structured by specific domains
+Files are structured by specific domains, including the style sheets.
 
 Testing is done with Mocha, Chai, SuperTest, and Enyzme!
+
+CSS is precompiled using SASS and directly imported into the js files.
 
 ### Installation and Setup
 If you want to modify the NERDS Starter Pack to your liking **Fork** and then modify it to your liking!
