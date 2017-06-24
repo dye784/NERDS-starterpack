@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Login from '../Login';
 import Logout from '../Logout';
 import { getUser } from '../Login/LoginReducer';
+import './style.scss';
 
 export const App = (props) => {
   return (
