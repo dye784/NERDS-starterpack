@@ -10,3 +10,9 @@ const reducer = (state = null, action) => {
 };
 
 export default reducer;
+
+export const getUser = (state) => state.auth;
+
+export const getUserId = (state) => state.auth.id;
+
+export const getUsername = (state) => state.auth.username;
