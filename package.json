@@ -25,6 +25,7 @@
     "body-parser": "^1.17.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
+    "css-loader": "^0.28.4",
     "enzyme": "^2.8.2",
     "express": "^4.15.2",
     "express-session": "^1.15.2",
@@ -44,9 +45,11 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.2",
     "redux-thunk": "^2.1.0",
+    "sass-loader": "^6.0.6",
     "sequelize": "^3.27.0",
     "sinon": "^2.2.0",
     "sinon-chai": "^2.10.0",
+    "style-loader": "^0.18.2",
     "supertest": "^3.0.0",
     "webpack": "^2.4.1"
   }
