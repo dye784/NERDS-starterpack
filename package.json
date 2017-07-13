@@ -7,7 +7,7 @@
     "test": "mocha --compilers js:babel-register browser/**/tests/*.test.js browser/**/tests/*.test.jsx server/app/routes/*.test.js",
     "start": "nodemon --watch server -e js,html server/app/main.js",
     "build": "webpack --watch",
-    "db-init": "pg-init NAME_OF_DB",
+    "db-init": "pg-init name_of_db",
     "seed": "node seed.js"
   },
   "author": "Damon",
