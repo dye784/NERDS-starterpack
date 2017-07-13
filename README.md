@@ -44,7 +44,7 @@ Then install the dependencies
 npm install
 ```
 
-To create the database first go into the `package.json` in the `db-init` script change `NAME_OF_DB` to whatever you want the name of the database to be. Then go into `server/model/_db.js and put that name for `NAME_OF_DB` in that file. Then to create your database (Make sure you have Postgres running!)
+To create the database first go into the `package.json` in the `db-init` script change `name_of_db` to whatever you want the name of the database to be. Then go into `server/model/_db.js and put that name for `name_of_db` in that file. Then to create your database (Make sure you have Postgres running!)
 
 ```
 npm run db-init
