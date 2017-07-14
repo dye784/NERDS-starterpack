@@ -2,6 +2,8 @@ import axios from 'axios';
 
 export const AUTHENTICATED = 'AUTHENTICATED';
 
+export const SIGNUP = 'SIGNUP';
+
 export const authenticate = (user) => ({
   type: AUTHENTICATED,
   user,
@@ -26,3 +28,12 @@ export const fetchLoggedInUser = () => (dispatch) => (
   .then(res => res.data)
   .then(user => dispatch(authenticate(user)))
 );
+
+export const createNewUser = (username, password) => (dispatch) => {
+  axios.post('/api/auth/signup', {
+    username,
+    password,
+  })
+  .then(res => res.data)
+  .then(user => dispatch(authenticate(user)))
+};
