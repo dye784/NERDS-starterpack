@@ -29,11 +29,11 @@ export const fetchLoggedInUser = () => (dispatch) => (
   .then(user => dispatch(authenticate(user)))
 );
 
-export const createNewUser = (username, password) => (dispatch) => {
+export const createNewUser = (username, password) => (dispatch) => (
   axios.post('/api/auth/signup', {
     username,
     password,
   })
   .then(res => res.data)
   .then(user => dispatch(authenticate(user)))
-};
+);

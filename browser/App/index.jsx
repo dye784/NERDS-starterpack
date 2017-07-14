@@ -11,7 +11,7 @@ export const App = (props) => {
     <div>
       <h1>HELLO WORLD</h1>
       {!props.user ? <Login /> : <Logout />}
-      <SignUpForm />
+      {!props.user && <SignUpForm />}
     </div>
   );
 };

@@ -12,10 +12,11 @@ export const SignUpForm = ({ createNewUser }) => {
 
   return (
     <div>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input name="username" placeholder="username" />
         <input name="password" type="password" placeholder="password" />
-        <input name="confirm" type="confirm" placeholder="confirm password" />
+        <input name="confirm" type="password" placeholder="confirm password" />
         <input type="submit" value="Sign Up" />
       </form>
     </div>
