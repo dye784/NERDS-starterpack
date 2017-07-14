@@ -56,4 +56,15 @@ router.delete('/logout', (req, res, next) => {
   res.sendStatus(204);
 });
 
+// CREATE new user and log them in
+router.post('/signup', (req, res, next) => {
+  User.create(req.body)
+  .then((createdUser) => {
+    req.logIn(createdUser, (err) => {
+      if (err) { return next(err); }
+      res.send(createdUser.toJson());
+    });
+  });
+});
+
 module.exports = router;
