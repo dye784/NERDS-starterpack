@@ -22,26 +22,14 @@ If you want to modify the NERDS Starter Pack to your liking **Fork** and then mo
 
 If you want to use this to jumpstart your apps **clone** this repository and off you go!
 
-To just clone it:
-
-Create your own Github repo and clone it or make an empty directory on your machine and `git init`.
-
-Then add the remote branch
-
-```
-git remote add nerds https://github.com/dye784/NERDS-starterpack.git
-```
-
-Then pull from the remote repo into the master branch
-
-```
-git pull nerds master
-```
-
-Then install the dependencies
+To install the dependencies
 
 ```
 npm install
+
+// OR
+
+yarn install
 ```
 
 To create the database first go into the `package.json` in the `db-init` script change `name_of_db` to whatever you want the name of the database to be. Then go into `server/model/_db.js and put that name for `name_of_db` in that file. Then to create your database (Make sure you have Postgres running!)
