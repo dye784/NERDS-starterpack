@@ -1,7 +1,7 @@
 ## NERDS(NERP) Starter Pack
 [![Build Status](https://travis-ci.org/dye784/NERDS-starterpack.svg?branch=master)](https://travis-ci.org/dye784/NERDS-starterpack)
 
-### Introduction
+### Introduction and Features
 Hello, my name is Damon Ye and this is a boiler plate for the NERDS stack!
 
 The NERDS stack consists of :
@@ -13,9 +13,27 @@ Databases with SQL (PostgreSQL, Sequelize)
 
 Files are structured by specific domains, including the style sheets.
 
+Redux files are named as such -- `ComponentNameActionCreator.js` or `ComponentNameReducer.js`
+
+JSX files are explicitly labeled as `.jsx` files.
+
 Testing is done with Mocha, Chai, SuperTest, and Enyzme!
 
+Testing files are located in the directory of the specific component/container.
+
 CSS is precompiled using SASS and directly imported into the js files.
+
+Users can sign up, login and logout. Password encryption is done with bcryptjs.
+
+Single page application style done with React Router.
+
+Component-Container design pattern using react-redux.
+
+Selectors are used to make state management easier and are placed in reducer files.
+
+Sync action creators, async action creators, and constants are placed in the action creator files.
+
+A seed file `seed.js` is included to easily create seed data.
 
 ### Installation and Setup
 If you want to modify the NERDS Starter Pack to your liking **Fork** and then modify it to your liking!
