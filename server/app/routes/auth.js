@@ -1,70 +1,79 @@
 const router = require('express').Router();
 const passport = require('passport');
-const User = require('../../model/user');
+const { Trader } = require('../../model');
 
-passport.serializeUser((user, done) => {
-  try {
-    done(null, user.id);
-  } catch (err) {
-    done(err);
-  }
+passport.serializeUser((trader, done) => {
+    try {
+        done(null, trader.id);
+    } catch (err) {
+        done(err);
+    }
 });
 
-passport.deserializeUser((id, done) => {
-  User.findById(id)
-  .then(user => done(null, user))
-  .catch(done);
+passport.deserializeUser(async (id, done) => {
+    try {
+        const trader = await Trader.findByPk(id);
+        done(null, trader);
+    } catch (err) {
+        done(err);
+    }
 });
 
 // GET request to get self
 router.get('/me', (req, res, next) => {
-  res.send(req.user);
+    res.send(req.user);
 });
 
 // POST request to login user
 // If user exists, check password, if correct password login
-router.post('/login', (req, res, next) => {
-  User.findOne({
-    where: {
-      username: req.body.username,
-    },
-    defaults: {
-      password: req.body.password,
-    },
-    attributes: { include: ['password_digest'] },
-  })
-  .then((foundUser) => {
-      if (!foundUser) { return res.sendStatus(401); }
-      return foundUser.authenticate(req.body.password)
-        .then((isAuthorized) => {
-          if (!isAuthorized) {
-            res.sendStatus(401);
-          } else {
-            req.logIn(foundUser, (err) => {
-              if (err) { return next(err); }
-              res.send(foundUser.toJson());
-            });
-          }
+router.post('/login', async (req, res, next) => {
+    try {
+        const foundTrader = await Trader.findOne({
+            where: {
+                username: req.body.username,
+            },
+            defaults: {
+                password: req.body.password,
+            },
+            attributes: { include: ['password_digest'] },
         });
-  })
-  .catch(next);
+
+        if (!foundTrader) {
+            return res.sendStatus(401);
+        }
+
+        const isAuthorized = await foundTrader.authenticate(req.body.password)
+        if (!isAuthorized) {
+            return res.sendStatus(401);
+        } else {
+            return req.logIn(foundTrader, (err) => {
+                if (err) {
+                    return next(err);
+                }
+                return res.send(foundTrader.toJson());
+            });
+        }
+
+    } catch (error) {
+        next(error);
+    }
 });
 
 // DELETE request to logout user
 router.delete('/logout', (req, res, next) => {
-  req.logOut();
-  res.sendStatus(204);
+    req.logOut();
+    res.sendStatus(204);
 });
 
 // CREATE new user and log them in
-router.post('/signup', (req, res, next) => {
-  User.create(req.body)
-  .then((createdUser) => {
-    req.logIn(createdUser, (err) => {
-      if (err) { return next(err); }
-      res.send(createdUser.toJson());
+router.post('/signup', async (req, res, next) => {
+    const createdTrader = await Trader.create(req.body);
+    return req.logIn(createdTrader, (err) => {
+        if (err) {
+            return next(err);
+        }
+        return res.send(createdTrader.toJson());
     });
-  });
 });
 
 module.exports = router;

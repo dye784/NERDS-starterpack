@@ -2,8 +2,17 @@
 const db = require('./_db');
 
 // Models
-const User = require('./user');
+const Trader = require('./trader');
+const Order = require('./order');
+const Trade = require('./trade');
+const Ticker = require('./ticker');
 
 // Associations
 
-module.exports = db;
+module.exports = {
+    db,
+    Trader,
+    Order,
+    Trade,
+    Ticker
+};

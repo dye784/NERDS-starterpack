@@ -7,7 +7,7 @@ const passport = require('passport');
 const app = express();
 
 const routes = require('./routes');
-const db = require('../model');
+const { db } = require('../model');
 
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 1337;
@@ -45,13 +45,13 @@ app.use('/api', routes);
 // Needed to remove errors during http testing
 if (module === require.main) {
   db.sync()
-  .then(() => {
-    console.log('----- Database is Synced! -----');
-    app.listen(port, () => {
-      console.log('----- HTTP Server Started! -----');
-      console.log(`Server is listening on port ${port}`);
+    .then(() => {
+      console.log('----- Database is Synced! -----');
+      app.listen(port, () => {
+        console.log('----- HTTP Server Started! -----');
+        console.log(`Server is listening on port ${port}`);
+      });
     });
-  });
 }
 
 module.exports = app;
