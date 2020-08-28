@@ -13,7 +13,7 @@
   "author": "Damon",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.15.3",
+    "axios": "^0.18.1",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^7.0.0",
