@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { Trader, db } = require('./server/model');
+const { User, db } = require('./server/model');
 
 const numUsers = 20;
 
@@ -12,7 +12,7 @@ const doTimes = (n, fn) => {
 };
 
 const randomFakeUser = () => {
-  return Trader.build({
+  return User.build({
     username: faker.internet.userName(),
     password: faker.internet.password(),
     last_logout: Date.now(),
@@ -20,7 +20,7 @@ const randomFakeUser = () => {
 };
 
 const createFakeUser = () => {
-  const testUser = Trader.build({
+  const testUser = User.build({
     username: 'example',
     password: '12345',
   });

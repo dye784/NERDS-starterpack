@@ -15,7 +15,7 @@ const setUsernameAndPassword = (user) => {
         .then(hash => user.set('password_digest', hash));
 };
 
-const Trader = db.define('trader', {
+const User = db.define('user', {
     username: {
         type: DataTypes.STRING,
         validate: {
@@ -41,7 +41,7 @@ const Trader = db.define('trader', {
 * @param {string} password
 * @returns {bool} Returns a promisified boolean
 */
-Trader.prototype.authenticate = function (password) {
+User.prototype.authenticate = function (password) {
     return bcrypt.compare(password, this.password_digest);
 };
 
@@ -50,7 +50,7 @@ Trader.prototype.authenticate = function (password) {
 * @returns {object} Returns an object of user data excluding
 * password and password_digest
 */
-Trader.prototype.toJson = function () {
+User.prototype.toJson = function () {
     return {
         username: this.username,
         created_at: this.createdAt,
@@ -59,4 +59,4 @@ Trader.prototype.toJson = function () {
     };
 };
 
-module.exports = Trader;
+module.exports = User;

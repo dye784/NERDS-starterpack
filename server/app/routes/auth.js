@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const passport = require('passport');
-const { Trader } = require('../../model');
+const { User } = require('../../model');
 
-passport.serializeUser((trader, done) => {
+passport.serializeUser((user, done) => {
     try {
-        done(null, trader.id);
+        done(null, user.id);
     } catch (err) {
         done(err);
     }
@@ -12,8 +12,8 @@ passport.serializeUser((trader, done) => {
 
 passport.deserializeUser(async (id, done) => {
     try {
-        const trader = await Trader.findByPk(id);
-        done(null, trader);
+        const user = await User.findByPk(id);
+        done(null, user);
     } catch (err) {
         done(err);
     }
@@ -29,7 +29,7 @@ router.get('/me', (req, res, next) => {
 // If user exists, check password, if correct password login
 router.post('/login', async (req, res, next) => {
     try {
-        const foundTrader = await Trader.findOne({
+        const foundUser = await User.findOne({
             where: {
                 username: req.body.username,
             },
@@ -39,19 +39,19 @@ router.post('/login', async (req, res, next) => {
             attributes: { include: ['password_digest'] },
         });
 
-        if (!foundTrader) {
+        if (!foundUser) {
             return res.sendStatus(401);
         }
 
-        const isAuthorized = await foundTrader.authenticate(req.body.password)
+        const isAuthorized = await foundUser.authenticate(req.body.password)
         if (!isAuthorized) {
             return res.sendStatus(401);
         } else {
-            return req.logIn(foundTrader, (err) => {
+            return req.logIn(foundUser, (err) => {
                 if (err) {
                     return next(err);
                 }
-                return res.send(foundTrader.toJson());
+                return res.send(foundUser.toJson());
             });
         }
 
@@ -69,12 +69,12 @@ router.delete('/logout', (req, res, next) => {
 // CREATE new user and log them in
 router.post('/signup', async (req, res, next) => {
     try {
-        const createdTrader = await Trader.create(req.body);
-        return req.logIn(createdTrader, (err) => {
+        const createdUser = await User.create(req.body);
+        return req.logIn(createdUser, (err) => {
             if (err) {
                 return next(err);
             }
-            return res.send(createdTrader.toJson());
+            return res.send(createdUser.toJson());
         });
     } catch (err) {
         next(err);

@@ -1,12 +1,11 @@
 const request = require('supertest');
 const app = require('../../../server/app/main');
-const Trader = require('../../../server/model/trader');
-const { db } = require('../../../server/model');
+const { db, User } = require('../../../server/model');
 
 describe('Auth Routes', () => {
     beforeEach(async (done) => {
         await db.sync({ force: true });
-        await Trader.create(userData);
+        await User.create(userData);
         done();
     });
 

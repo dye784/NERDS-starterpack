@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/central_limit_orderbook', {
+const db = new Sequelize(process.env.DATABASE_URL || 'postgres://localhost:5432/name_of_db', {
   logging: false,
 });
 

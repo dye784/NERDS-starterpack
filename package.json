@@ -1,12 +1,12 @@
 {
-  "name": "central-limit-orderbook",
-  "version": "1.0.0",
-  "description": "Central Limit Orderbook",
+  "name": "nerds-starterpack",
+  "version": "2.0.0",
+  "description": "React, Redux, Express, Postgres Boilerplate",
   "main": "server/main.js",
   "scripts": {
     "start": "nodemon --watch server -e js,html server/app/main.js",
     "build": "webpack --watch",
-    "db-init": "pg-init central_limit_orderbook",
+    "db-init": "pg-init name_of_db",
     "seed": "node seed.js"
   },
   "author": "Damon Ye",
