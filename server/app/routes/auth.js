@@ -21,6 +21,7 @@ passport.deserializeUser(async (id, done) => {
 
 // GET request to get self
 router.get('/me', (req, res, next) => {
+    console.log('req.user', req.user)
     res.send(req.user);
 });
 
@@ -67,13 +68,17 @@ router.delete('/logout', (req, res, next) => {
 
 // CREATE new user and log them in
 router.post('/signup', async (req, res, next) => {
-    const createdTrader = await Trader.create(req.body);
-    return req.logIn(createdTrader, (err) => {
-        if (err) {
-            return next(err);
-        }
-        return res.send(createdTrader.toJson());
-    });
+    try {
+        const createdTrader = await Trader.create(req.body);
+        return req.logIn(createdTrader, (err) => {
+            if (err) {
+                return next(err);
+            }
+            return res.send(createdTrader.toJson());
+        });
+    } catch (err) {
+        next(err);
+    }
 });
 
 module.exports = router;

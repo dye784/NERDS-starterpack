@@ -1,8 +1,12 @@
 {
     "presets": [
-        "react",
-        "es2015",
-        "stage-2"
+        "@babel/preset-env",
+        "@babel/preset-react",
     ],
-    "plugins": ["transform-react-jsx-source"]
+    "plugins": [
+        "@babel/plugin-proposal-class-properties"
+    ],
+    "test": [
+        "jest"
+    ]
 }

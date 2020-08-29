@@ -10,19 +10,26 @@ module.exports = {
     extensions: ['.js', '.jsx'],
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+    rules: [{
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
         loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-2'],
-        },
-      },
-      {
-        test: /\.scss$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
-      },
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+          plugins: [
+            '@babel/plugin-proposal-class-properties'
+          ]
+        }
+      }
+    },
+    {
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+    },
     ],
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  }
 };
