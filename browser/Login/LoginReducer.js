@@ -1,12 +1,14 @@
-import { AUTHENTICATED } from './LoginActionCreator';
+import { AUTHENTICATE, UNATHENTICATE } from './LoginActionCreator';
 
 const reducer = (state = null, action) => {
-  switch (action.type) {
-    case AUTHENTICATED:
-      return action.user;
-    default:
-      return state;
-  }
+    switch (action.type) {
+        case AUTHENTICATE:
+            return action.user;
+        case UNATHENTICATE:
+            return null;
+        default:
+            return state;
+    }
 };
 
 export default reducer;
