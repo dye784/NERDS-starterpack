@@ -1,9 +1,9 @@
 language: node_js
 node_js:
-  - "7"
+  - "10"
 cache: yarn
 install:
-  - npm install
+  - yarn install
 services:
   - postgresql
 before_script:

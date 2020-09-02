@@ -21,7 +21,6 @@ passport.deserializeUser(async (id, done) => {
 
 // GET request to get self
 router.get('/me', (req, res, next) => {
-    console.log('req.user', req.user)
     res.send(req.user);
 });
 
