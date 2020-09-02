@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
-const { User } = require('../../model');
+const { User } = require('../../db');
 
 passport.serializeUser((user, done) => {
     try {

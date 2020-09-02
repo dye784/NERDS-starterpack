@@ -1,6 +1,6 @@
 const request = require('supertest');
 const app = require('../../../server/app/main');
-const { db, User } = require('../../../server/model');
+const { db, User } = require('../../db');
 
 describe('Auth Routes', () => {
     beforeEach(async (done) => {

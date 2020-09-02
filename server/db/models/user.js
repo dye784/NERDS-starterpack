@@ -1,6 +1,6 @@
 const { DataTypes } = require('sequelize');
 const bcrypt = require('bcryptjs');
-const db = require('./_db');
+const db = require('../db');
 
 /**
  * setUsernameAndPassword
