@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Login from '../Login';
 import Logout from '../Logout';
-import { getUser } from '../Login/LoginReducer';
+import { getUser } from '../../reducers/AccountReducer';
 import SignUpForm from '../SignUp';
 import './style.scss';
-import { fetchLoggedInUser } from '../Login/LoginActionCreator';
+import { fetchLoggedInUser } from '../../actions/AccountActions';
 
 export class App extends Component {
     componentDidMount() {

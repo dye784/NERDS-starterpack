@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../Login/LoginActionCreator';
+import { logout } from '../../actions/AccountActions';
 
 export const Logout = ({ user, logout }) => (
   <div>

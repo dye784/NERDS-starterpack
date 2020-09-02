@@ -1,4 +1,4 @@
-import { AUTHENTICATE, UNATHENTICATE } from './LoginActionCreator';
+import { AUTHENTICATE, UNATHENTICATE } from '../actions/AccountActions';
 
 const reducer = (state = null, action) => {
     switch (action.type) {

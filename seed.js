@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { User, db } = require('./server/model');
+const { User, db } = require('./server/db');
 
 const numUsers = 20;
 

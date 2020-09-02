@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { login } from './LoginActionCreator';
+import { login } from '../../actions/AccountActions';
 
 export const Login = ({ login }) => {
   const handleSubmit = (evt) => {

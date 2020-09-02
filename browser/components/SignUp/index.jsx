@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createNewUser } from '../Login/LoginActionCreator';
+import { createNewUser } from '../../actions/AccountActions';
 
 export class SignUpForm extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export class SignUpForm extends Component {
     }
   };
 
-  render () {
+  render() {
     return (
       <div>
         <h1>Sign Up</h1>
