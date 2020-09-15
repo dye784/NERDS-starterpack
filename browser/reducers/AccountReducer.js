@@ -1,4 +1,4 @@
-import { AUTHENTICATE, UNATHENTICATE } from '../actions/AccountActions';
+import { AUTHENTICATE, UNATHENTICATE } from "../actions/AccountActions";
 
 const reducer = (state = null, action) => {
     switch (action.type) {
@@ -13,8 +13,8 @@ const reducer = (state = null, action) => {
 
 export default reducer;
 
-export const getUser = (state) => state.auth;
+export const getUser = (state) => state.user;
 
-export const getUserId = (state) => state.auth.id;
+export const getUserId = (state) => state.user && state.user.id;
 
-export const getUsername = (state) => state.auth.username;
+export const getUsername = (state) => state.user && state.user.username;

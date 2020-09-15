@@ -8,7 +8,7 @@
 // import { spy } from 'sinon';
 // import sinonChai from 'sinon-chai';
 // chai.use(sinonChai);
-// import LogoutContainer, { Logout } from '..';
+// import LogoutContainer, { Logout } from '../';
 // chai.use(chaiEnzyme());
 
 // describe('<Logout />', () => {

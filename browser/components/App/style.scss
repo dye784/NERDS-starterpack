@@ -1,3 +1,33 @@
-h1 {
-  color: red;
+/* Reset */
+html,
+body,
+div,
+span,
+p,
+ul,
+li,
+a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    color: #1d1d1f;
+    vertical-align: baseline;
+    font-weight: 100;
+    line-height: 1.47059;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
 }

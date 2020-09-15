@@ -1,9 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const AUTHENTICATE = 'AUTHENTICATE';
-export const UNATHENTICATE = 'UNATHENTICATE';
-
-export const SIGNUP = 'SIGNUP';
+export const AUTHENTICATE = "AUTHENTICATE";
+export const UNATHENTICATE = "UNATHENTICATE";
 
 export const authenticate = (user) => ({
     type: AUTHENTICATE,
@@ -11,40 +9,61 @@ export const authenticate = (user) => ({
 });
 
 export const unauthenticate = () => ({
-    type: UNATHENTICATE
-})
+    type: UNATHENTICATE,
+});
 
-export const login = (username, password) => (dispatch) => (
-    axios.post('/api/auth/login', {
-        username,
-        password,
-    })
-        .then(res => res.data)
-        .then(user => dispatch(authenticate(user)))
-);
+export const login = (username, password) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post("/api/auth/login", {
+                username,
+                password,
+            });
+            dispatch(authenticate(data));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
 
-export const logout = () => (dispatch) => (
-    axios.delete('/api/auth/logout')
-        .then(() => dispatch(unauthenticate()))
-);
+export const logout = () => {
+    return async (dispatch) => {
+        try {
+            await axios.delete("/api/auth/logout");
+            dispatch(unauthenticate());
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
 
-export const fetchLoggedInUser = () => (dispatch) => (
-    axios.get('/api/auth/me')
-        .then(res => res.data)
-        .then(user => {
-            if (user) {
-                dispatch(authenticate(user));
+export const fetchLoggedInUser = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get("/api/auth/me");
+            if (data) {
+                dispatch(authenticate(data));
             } else {
                 dispatch(unauthenticate());
             }
-        })
-);
+        } catch (err) {
+            console.error(err);
+            dispatch(unauthenticate());
+        }
+    };
+};
 
-export const createNewUser = (username, password) => (dispatch) => (
-    axios.post('/api/auth/signup', {
-        username,
-        password,
-    })
-        .then(res => res.data)
-        .then(user => dispatch(authenticate(user)))
-);
+export const createNewUser = (username, password) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post("/api/auth/signup", {
+                username,
+                password,
+            });
+
+            dispatch(authenticate(data));
+        } catch (err) {
+            console.error(err);
+        }
+    };
+};
